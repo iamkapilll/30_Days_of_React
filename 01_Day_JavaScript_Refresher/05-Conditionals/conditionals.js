@@ -23,8 +23,8 @@ switch (grade) {
 }
 
 // ternary
-let status = isScholarship ? "Scholarship awarded" : "No scholarship";
-console.log(status);
+let statuss = isScholarship ? "Scholarship awarded" : "No scholarship";
+console.log(statuss);
 
 // logical operators
 if (grade === "A" && isScholarship) {
