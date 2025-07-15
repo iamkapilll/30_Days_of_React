@@ -1,0 +1,32 @@
+<!-- 13 Document Object Model(DOM)
+HTML document is structured as a JavaScript Object. Every HTML element has a different properties which can help us to manipulate it. 
+It is possible to get, create, append or remove HTML elements using JavaScript.
+
+When it comes to React we do not directly manipulate the DOM instead React Virtual DOM will take care of update all necessary changes.
+
+So do not directly manipulate the DOM if you are using react. The only place we directly touch the DOM is here at the index.html.
+ React is a single page application because all the components will be rendered on the index.html page and there will not be any other HTML in the entire React Application. 
+ You don't have to know DOM very well to use react but recommended to know. -->
+
+ 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>React App</title>
+  </head>
+
+  <body>
+
+    <!-- <div class="root"></div> -->
+    <div id="root"></div>
+
+    <script>
+      // const root = document.querySelector('.root')
+      // const root = document.getElementById('root')
+      const root = document.querySelector('#root')
+      root.innerHTML = <h1>Welcome to 30 Days Of React </h1>
+    </script>
+  </body>
+</html>
