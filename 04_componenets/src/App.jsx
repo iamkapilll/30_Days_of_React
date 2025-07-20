@@ -1,34 +1,73 @@
+// import './App.css'
 
-import './App.css' 
+ // level three of practice coding in react:
+function App() {
+  const photoUrl =
+    'https://media.licdn.com/dms/image/v2/D4D03AQH5LPeOtmhr3g/profile-displayphoto-scale_400_400/B4DZfGZDTKGYAg-/0/1751380147137?e=1755734400&v=beta&t=GWzT_TFMlUki8gEYf7VQRA7m-MtNC0Jm6Oeva6gSxZU'
 
-// level two ko second practice from 30 days of react challenge
-function App(){
+  const author = {
+    firstName: 'Kapil',
+    lastName: 'Dev',
+  }
 
-  const suscribe = 'SUSCRIBE'
-  const text = 'sign up with your email address to receive news and updates'
+  const explainme = 'Senior Developer, Nepal'
 
-  const UserInput = ()=>(
-    <header>
-      <div className='header-wrapper flex gap-0 justify-around m-2.5 p-2.5'>
-        <input className='border-2 rounded-e-sm' type="firstName" name="firstName" id="" placeholder='FirstName'/>
-        <input className='border-2 rounded-e-sm'  type="lastName" name="lastName" id="" placeholder='LastName'/>
-        <input className='border-2 rounded-e-sm'  type="email" name="email" id="" placeholder='Email'/>
-      </div>
-    </header>
-  )
+  const skills = [
+    'HTML',
+    'CSS',
+    'JavaScript',
+    'React',
+    'Node.js',
+    'Express.js',
+    'MongoDB',
+    'Git & GitHub',
+    'REST APIs',
+    'SQL',
+    'TypeScript',
+    'Tailwind CSS',
+    'Redux',
+    'Next.js',
+    'Docker',
+    'Unit Testing (Jest)',
+    'Agile & Scrum',
+    'CI/CD',
+    'Linux & Command Line',
+    'Problem Solving',
+  ]
 
-  const Button = ()=> (
-    <button className='bg-red-600 rounded-2xl m-1 p-4'>SUSCRIBE</button>
-  )
+  const developerSkills = skills.map((skill) => (
+    <span
+      key={skill}
+      className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 mb-2 px-3 py-1 rounded-full shadow-sm"
+    >
+      {skill}
+    </span>
+  ))
 
-  const Main = () =>(
-    <main>
-      <div className='main-wrapper bg-indigo-300 rounded-2xl'>
-        <h1 className='bg-yellow-400 inline-flex justify-around m-1 p-1 rounded-2xl'>{suscribe}</h1>
-        <p>{text}</p>
+  const joined = 'Joined on July 20, 2025'
 
-        <UserInput />
-        <Button />
+  const Main = () => (
+    <main className="min-h-screen bg-gradient-to-b from-blue-50 to-white flex items-center justify-center p-4">
+      <div className="bg-white shadow-xl rounded-2xl p-6 max-w-md w-full text-center space-y-4">
+        <img
+          className="w-28 h-28 rounded-full mx-auto border-4 border-blue-200"
+          src={photoUrl}
+          alt="Kapil Dev"
+        />
+
+        <div>
+          <h2 className="text-2xl font-bold text-gray-800">
+            {author.firstName} {author.lastName}
+          </h2>
+          <p className="text-gray-600">{explainme}</p>
+        </div>
+
+        <div>
+          <h3 className="text-xl font-semibold text-gray-800 mt-4 mb-2">Skills</h3>
+          <div className="flex flex-wrap justify-center">{developerSkills}</div>
+        </div>
+
+        <small className="text-gray-500">{joined}</small>
       </div>
     </main>
   )
@@ -41,6 +80,73 @@ function App(){
 }
 
 export default App
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import './App.css' 
+
+// // level two ko second practice from 30 days of react challenge
+// function App(){
+
+//   const suscribe = 'SUSCRIBE'
+//   const text = 'sign up with your email address to receive news and updates'
+
+//   const UserInput = ()=>(
+//     <header>
+//       <div className='header-wrapper flex gap-0 justify-around m-2.5 p-2.5'>
+//         <input className='border-2 rounded-e-sm' type="firstName" name="firstName" id="" placeholder='FirstName'/>
+//         <input className='border-2 rounded-e-sm'  type="lastName" name="lastName" id="" placeholder='LastName'/>
+//         <input className='border-2 rounded-e-sm'  type="email" name="email" id="" placeholder='Email'/>
+//       </div>
+//     </header>
+//   )
+
+//   const Button = ()=> (
+//     <button className='bg-red-600 rounded-2xl m-1 p-4'>SUSCRIBE</button>
+//   )
+
+//   const Main = () =>(
+//     <main>
+//       <div className='main-wrapper bg-indigo-300 rounded-2xl'>
+//         <h1 className='bg-yellow-400 inline-flex justify-around m-1 p-1 rounded-2xl'>{suscribe}</h1>
+//         <p>{text}</p>
+
+//         <UserInput />
+//         <Button />
+//       </div>
+//     </main>
+//   )
+
+//   return (
+//     <>
+//       <Main />
+//     </>
+//   )
+// }
+
+// export default App
 
 
 
