@@ -1,40 +1,88 @@
 
-
+// props in function
 import './App.css'
 
-const Header = (props) =>{
-  <header>
-    <div className='header-wrapper'>
-      <h1>{props.data.welcome}</h1>
-      <h2>{props.data.title}</h2>
-      <h3>{props.data.subtitles}</h3>
-    </div>
-  </header>
-}
-
+const Button = (props) => <button onClick={props.onClick}>{props.text}</button>
 
 
 
 
 function App() {
 
-  const data = {
-    welcome: "welcome to the 30 days of react.js",
-    title: "This is about props in object",
-    subtitles:" i don't think there is any subtitles here"
-
+  const sayHi= () =>{
+    alert("hi")
   }
 
  
 
   return (
     <>
-      <App data={data} />
+
+    <Button text="say hi" onClick={sayHi} />
+    <Button text="show time" onClick={alert(new Date())} />
+
     </>
   )
 }
 
 export default App
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import './App.css'
+
+// const Header = (props) =>{
+//   <header>
+//     <div className='header-wrapper'>
+//       <h1>{props.data.welcome}</h1>
+//       <h2>{props.data.title}</h2>
+//       <h3>{props.data.subtitles}</h3>
+//     </div>
+//   </header>
+// }
+
+
+
+
+
+// function App() {
+
+//   const data = {
+//     welcome: "welcome to the 30 days of react.js",
+//     title: "This is about props in object",
+//     subtitles:" i don't think there is any subtitles here"
+
+//   }
+
+ 
+
+//   return (
+//     <>
+//       <App data={data} />
+//     </>
+//   )
+// }
+
+// export default App
 
 
 
