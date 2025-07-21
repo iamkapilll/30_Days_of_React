@@ -1,31 +1,308 @@
-
-// props in function
 import './App.css'
 
-const Button = (props) => <button onClick={props.onClick}>{props.text}</button>
+const showDate = (time) => {
+  const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const month = months[time.getMonth()].slice(0, 3);
+  const year = time.getFullYear();
+  const date = time.getDate();
+  return `${month} ${date} ${year}`;
+}
 
+// Header Component
+const Header = ({
+  data: {
+    welcome,
+    title,
+    subtitle,
+    author: { firstName, lastName },
+    date,
+  },
+}) => (
+  <header>
+    <div className='header-wrapper'>
+      <h1>{welcome}</h1>
+      <h2>{title}</h2>
+      <h3>{subtitle}</h3>
+      <p>{firstName} {lastName}</p>
+      <small>{showDate(date)}</small>
+    </div>
+  </header>
+);
 
+// TechList Component
+const TechList = ({ techs }) => {
+  const techlist = techs.map((tech) => <li key={tech}>{tech}</li>);
+  return <>{techlist}</>;
+};
 
+// UserCard Component
+const UserCard = ({ user: { firstName, lastName, image } }) => (
+  <div className='user-card'>
+    <img src={image} alt={firstName} />
+    <h2>{firstName} {lastName}</h2>
+  </div>
+);
 
+// Button Component
+const Button = ({ text, onclick, style }) => (
+  <button style={style} onClick={onclick}>{text}</button>
+);
+
+// CSS styles
+const buttonStyles = {
+  backgroundColor: '#61dbfb',
+  padding: 10,
+  border: 'none',
+  borderRadius: 5,
+  margin: 3,
+  cursor: 'pointer',
+  fontSize: 18,
+  color: 'white',
+};
+
+// Main Component
+const Main = ({ user, techs, greetPeople, handleTime }) => (
+  <main>
+    <div className='main-wrapper'>
+      <p>Prerequisite to get started react.js</p>
+      <ul>
+        <TechList techs={techs} />
+      </ul>
+      <UserCard user={user} />
+      <Button text="Greet People" onclick={greetPeople} style={buttonStyles} />
+      <Button text="Show Time" onclick={handleTime} style={buttonStyles} />
+    </div>
+  </main>
+);
+
+// Footer Component
+const Footer = ({ copyRight }) => (
+  <footer>
+    <div className='footer-wrapper'>
+      <p>Copyright {copyRight.getFullYear()}</p>
+    </div>
+  </footer>
+);
+
+// App Component
 function App() {
+  const data = {  // the flow of code starts here
+    welcome: 'Welcome to 30 Days Of React',
+    title: 'Getting Started React',
+    subtitle: 'JavaScript Library',
+    author: {
+      firstName: 'Kapil',
+      lastName: 'Dev',
+    },
+    date: new Date()
+  };
 
-  const sayHi= () =>{
-    alert("hi")
-  }
+  const date = new Date(); // for date
+  const techs = ['HTML', 'CSS', 'JavaScript']; // for techlist
 
- 
+  const user = { // user info
+    ...data.author,
+    image: 'https://media.licdn.com/dms/image/v2/D4D03AQH5LPeOtmhr3g/profile-displayphoto-scale_400_400/B4DZfGZDTKGYAg-/0/1751380147137?e=1755734400&v=beta&t=GWzT_TFMlUki8gEYf7VQRA7m-MtNC0Jm6Oeva6gSxZU'
+  };
+
+  const handleTime = () => {  // for button
+    alert(showDate(new Date()));
+  };
+
+  const greetPeople = () => { // for button
+    alert('Welcome to 30 Days of React Challenge!');
+  };
 
   return (
     <>
-
-    <Button text="say hi" onClick={sayHi} />
-    <Button text="show time" onClick={alert(new Date())} />
-
+      <Header data={data} />
+      <Main user={user} techs={techs} handleTime={handleTime} greetPeople={greetPeople} />
+      <Footer copyRight={date} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import './App.css'
+
+// const Header = (props) => {
+//   const data = props.data
+//   const { welcome, title, subtitle, author, date } = data
+//   const { firstName, lastName } = author
+
+//   return (
+//     <header>
+//       <div className='header-wrapper'>
+//         <h1>{welcome}</h1>
+//         <h2>{title}</h2>
+//         <h3>{subtitle}</h3>
+//         <p>{firstName} {lastName}</p>
+//         <small>{date.toDateString()}</small>
+//       </div>
+//     </header>
+//   )
+// }
+
+// function App() {
+//   const data = {
+//     welcome: "welcome to the 30 days of js",
+//     title: "Getting started",
+//     subtitle: "js library",
+//     author: {
+//       firstName: "kapil",
+//       lastName: "dev"
+//     },
+//     date: new Date()
+//   }
+
+//   return (
+//     <>
+//       <Header data={data} />
+//     </>
+//   )
+// }
+
+// export default App
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // props to show alert as date
+// import './App.css'
+
+// const ShowDate = (time) =>{
+//   const months = [
+//     'January',
+//     'February',
+//     'March',
+//     'April',
+//     'May',
+//     'June',
+//     'July',
+//     'August',
+//     'September',
+//     'October',
+//     'November',
+//     'December',
+//   ]
+
+//   const month = months[time.getMonth()].slice(0,3)
+//   const year = time.getFullYear()
+//   const date = time.getDate()
+//   return `${month} ${date} ${year}`
+// }
+
+
+
+// const Button = (props) => <button onClick={props.onClick}>{props.text}</button>
+
+
+
+
+
+// function App() {
+
+//   const handleTime = () =>{
+//     alert(ShowDate(new Date()))
+//   }
+//   const greetPeople = () =>{
+//     alert("welcome to the challenge")
+//   }
+
+  
+ 
+
+//   return (
+//     <>
+//         <Button text="show time" onClick={handleTime} />
+//         <Button text="Greet people" onClick={greetPeople} />
+    
+
+//     </>
+//   )
+// }
+
+// export default App
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// props in function
+// import './App.css'
+
+// const Button = (props) => <button onClick={props.onClick}>{props.text}</button>
+
+
+
+
+// function App() {
+
+//   const sayHi= () =>{
+//     alert("hi")
+//   }
+
+ 
+
+//   return (
+//     <>
+
+//     <Button text="say hi" onClick={sayHi} />
+//     <Button text="show time" onClick={alert(new Date())} />
+
+//     </>
+//   )
+// }
+
+// export default App
 
 
 
