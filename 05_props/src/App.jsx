@@ -1,13 +1,5 @@
 
 
-
-
-
-
-
-
-
-
 import './App.css'
 
 // ProfileCard Component
