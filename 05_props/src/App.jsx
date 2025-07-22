@@ -1,128 +1,244 @@
+
+
+
+
+
+
+
+
+
+
 import './App.css'
 
-const showDate = (time) => {
-  const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-  const month = months[time.getMonth()].slice(0, 3);
-  const year = time.getFullYear();
-  const date = time.getDate();
-  return `${month} ${date} ${year}`;
+// ProfileCard Component
+const ProfileCard = ({ name, bio, imageUrl }) => {
+  return (
+    <div className="card">
+      <img src={imageUrl} alt={name} width="150" />
+      <h2>{name}</h2>
+      <p>{bio}</p>
+    </div>
+  )
 }
-
-// Header Component
-const Header = ({
-  data: {
-    welcome,
-    title,
-    subtitle,
-    author: { firstName, lastName },
-    date,
-  },
-}) => (
-  <header>
-    <div className='header-wrapper'>
-      <h1>{welcome}</h1>
-      <h2>{title}</h2>
-      <h3>{subtitle}</h3>
-      <p>{firstName} {lastName}</p>
-      <small>{showDate(date)}</small>
-    </div>
-  </header>
-);
-
-// TechList Component
-const TechList = ({ techs }) => {
-  const techlist = techs.map((tech) => <li key={tech}>{tech}</li>);
-  return <>{techlist}</>;
-};
-
-// UserCard Component
-const UserCard = ({ user: { firstName, lastName, image } }) => (
-  <div className='user-card'>
-    <img src={image} alt={firstName} />
-    <h2>{firstName} {lastName}</h2>
-  </div>
-);
-
-// Button Component
-const Button = ({ text, onclick, style }) => (
-  <button style={style} onClick={onclick}>{text}</button>
-);
-
-// CSS styles
-const buttonStyles = {
-  backgroundColor: '#61dbfb',
-  padding: 10,
-  border: 'none',
-  borderRadius: 5,
-  margin: 3,
-  cursor: 'pointer',
-  fontSize: 18,
-  color: 'white',
-};
-
-// Main Component
-const Main = ({ user, techs, greetPeople, handleTime }) => (
-  <main>
-    <div className='main-wrapper'>
-      <p>Prerequisite to get started react.js</p>
-      <ul>
-        <TechList techs={techs} />
-      </ul>
-      <UserCard user={user} />
-      <Button text="Greet People" onclick={greetPeople} style={buttonStyles} />
-      <Button text="Show Time" onclick={handleTime} style={buttonStyles} />
-    </div>
-  </main>
-);
-
-// Footer Component
-const Footer = ({ copyRight }) => (
-  <footer>
-    <div className='footer-wrapper'>
-      <p>Copyright {copyRight.getFullYear()}</p>
-    </div>
-  </footer>
-);
 
 // App Component
 function App() {
-  const data = {  // the flow of code starts here
-    welcome: 'Welcome to 30 Days Of React',
-    title: 'Getting Started React',
-    subtitle: 'JavaScript Library',
-    author: {
-      firstName: 'Kapil',
-      lastName: 'Dev',
-    },
-    date: new Date()
-  };
-
-  const date = new Date(); // for date
-  const techs = ['HTML', 'CSS', 'JavaScript']; // for techlist
-
-  const user = { // user info
-    ...data.author,
-    image: 'https://media.licdn.com/dms/image/v2/D4D03AQH5LPeOtmhr3g/profile-displayphoto-scale_400_400/B4DZfGZDTKGYAg-/0/1751380147137?e=1755734400&v=beta&t=GWzT_TFMlUki8gEYf7VQRA7m-MtNC0Jm6Oeva6gSxZU'
-  };
-
-  const handleTime = () => {  // for button
-    alert(showDate(new Date()));
-  };
-
-  const greetPeople = () => { // for button
-    alert('Welcome to 30 Days of React Challenge!');
-  };
+  const user = {
+    name: 'Kapil Dev Chaudhary',
+    bio: 'A passionate web developer learning React!',
+    imageUrl: 'https://via.placeholder.com/150'
+  }
 
   return (
-    <>
-      <Header data={data} />
-      <Main user={user} techs={techs} handleTime={handleTime} greetPeople={greetPeople} />
-      <Footer copyRight={date} />
-    </>
-  );
+    <div className="App">
+      <h1>User Profile</h1>
+      {/* Passing props to ProfileCard */}
+      <ProfileCard 
+        name={user.name} 
+        bio={user.bio} 
+        imageUrl={user.imageUrl} 
+      />
+    </div>
+  )
 }
 
-export default App;
+export default App
+// import './App.css';
+
+// // Header component with props destructuring
+// const Header = ({ data }) => {
+//   const { title, subtitle, author, comment, date } = data;
+//   const { firstName, lastName } = author;
+
+//   return (
+//     <header>
+//       <h1>{title}</h1>
+//       <h2>{subtitle}</h2>
+//       <p>By: {firstName} {lastName}</p>
+//       <p>{comment}</p>
+//       <small>{date.toDateString()}</small>
+//     </header>
+//   );
+// };
+
+
+
+// // App Component
+// function App() {
+//   const data = {
+//     title: 'Demon Slayer',
+//     subtitle: 'Akaza Arc',
+//     author: {
+//       firstName: 'Kapil',
+//       lastName: 'Dev'
+//     },
+//     comment: 'Best movie of all time!',
+//     date: new Date()
+//   };
+
+//   return (
+//     <div className="App">
+//       <Header data={data} />
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// everything applying in this code:
+// import './App.css'
+
+// const showDate = (time) => {
+//   const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+//   const month = months[time.getMonth()].slice(0, 3);
+//   const year = time.getFullYear();
+//   const date = time.getDate();
+//   return `${month} ${date} ${year}`;
+// }
+
+// // Header Component
+// const Header = ({
+//   data: {
+//     welcome,
+//     title,
+//     subtitle,
+//     author: { firstName, lastName },
+//     date,
+//   },
+// }) => (
+//   <header>
+//     <div className='header-wrapper'>
+//       <h1>{welcome}</h1>
+//       <h2>{title}</h2>
+//       <h3>{subtitle}</h3>
+//       <p>{firstName} {lastName}</p>
+//       <small>{showDate(date)}</small>
+//     </div>
+//   </header>
+// );
+
+// // TechList Component
+// const TechList = ({ techs }) => {
+//   const techlist = techs.map((tech) => <li key={tech}>{tech}</li>);
+//   return <>{techlist}</>;
+// };
+
+// // UserCard Component
+// const UserCard = ({ user: { firstName, lastName, image } }) => (
+//   <div className='user-card'>
+//     <img src={image} alt={firstName} />
+//     <h2>{firstName} {lastName}</h2>
+//   </div>
+// );
+
+// // Button Component
+// const Button = ({ text, onclick, style }) => (
+//   <button style={style} onClick={onclick}>{text}</button>
+// );
+
+// // CSS styles
+// const buttonStyles = {
+//   backgroundColor: '#61dbfb',
+//   padding: 10,
+//   border: 'none',
+//   borderRadius: 5,
+//   margin: 3,
+//   cursor: 'pointer',
+//   fontSize: 18,
+//   color: 'white',
+// };
+
+// // Main Component
+// const Main = ({ user, techs, greetPeople, handleTime }) => (
+//   <main>
+//     <div className='main-wrapper'>
+//       <p>Prerequisite to get started react.js</p>
+//       <ul>
+//         <TechList techs={techs} />
+//       </ul>
+//       <UserCard user={user} />
+//       <Button text="Greet People" onclick={greetPeople} style={buttonStyles} />
+//       <Button text="Show Time" onclick={handleTime} style={buttonStyles} />
+//     </div>
+//   </main>
+// );
+
+// // Footer Component
+// const Footer = ({ copyRight }) => (
+//   <footer>
+//     <div className='footer-wrapper'>
+//       <p>Copyright {copyRight.getFullYear()}</p>
+//     </div>
+//   </footer>
+// );
+
+// // App Component
+// function App() {
+//   const data = {  // the flow of code starts here
+//     welcome: 'Welcome to 30 Days Of React',
+//     title: 'Getting Started React',
+//     subtitle: 'JavaScript Library',
+//     author: {
+//       firstName: 'Kapil',
+//       lastName: 'Dev',
+//     },
+//     date: new Date()
+//   };
+
+//   const date = new Date(); // for date
+//   const techs = ['HTML', 'CSS', 'JavaScript']; // for techlist
+
+//   const user = { // user info
+//     ...data.author,
+//     image: 'https://media.licdn.com/dms/image/v2/D4D03AQH5LPeOtmhr3g/profile-displayphoto-scale_400_400/B4DZfGZDTKGYAg-/0/1751380147137?e=1755734400&v=beta&t=GWzT_TFMlUki8gEYf7VQRA7m-MtNC0Jm6Oeva6gSxZU'
+//   };
+
+//   const handleTime = () => {  // for button
+//     alert(showDate(new Date()));
+//   };
+
+//   const greetPeople = () => { // for button
+//     alert('Welcome to 30 Days of React Challenge!');
+//   };
+
+//   return (
+//     <>
+//       <Header data={data} />
+//       <Main user={user} techs={techs} handleTime={handleTime} greetPeople={greetPeople} />
+//       <Footer copyRight={date} />
+//     </>
+//   );
+// }
+
+// export default App;
 
 
 
