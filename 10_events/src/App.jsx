@@ -1,3 +1,4 @@
+//all about events in react
 // App.js
 import React, { useState } from 'react';
 import './App.css';
