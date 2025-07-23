@@ -13,7 +13,7 @@ function App() {
   });
 
   // Destructuring for easier access
-  const { firstName, lastName, country, title } = formData;
+  const { firstName, lastName, country, title } = formData; 
 
   // Handle input change
   const handleChange = (e) => {
