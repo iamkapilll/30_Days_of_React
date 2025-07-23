@@ -16,15 +16,15 @@ function App() {
   };
 
   // Input change event
-  const handleChange = (e) => {
-    setName(e.target.value);
+  const handleChange = (e) => { //e is the event object.
+    setName(e.target.value); //e.target.value is the current text in the input box. setName updates the name state as the user types.
   };
 
   // Form submit event
   const handleSubmit = (e) => {
     e.preventDefault(); // prevents page refresh
-    setSubmittedName(name);
-    setName('');
+    setSubmittedName(name); // sets the entered name
+    setName(''); // clears the input box
   };
 
   // Mouse over event
@@ -42,8 +42,9 @@ function App() {
       <h2>React Events Example</h2>
 
       {/* Click Event */}
-      <button onClick={handleClick}>Click Me</button>
+      <button onClick={handleClick}>Click Me - {count}</button>
       <p>You clicked {count} times</p>
+
 
       {/* Change & Submit Event */}
       <form onSubmit={handleSubmit}>
@@ -60,7 +61,7 @@ function App() {
       {/* Mouse Over Event */}
       <div
         style={{
-          background: '#f0f0f0',
+          background: 'black',
           padding: '10px',
           marginTop: '20px',
           width: '200px',
