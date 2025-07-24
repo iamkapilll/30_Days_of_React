@@ -1,30 +1,143 @@
 import React, { useState } from 'react'
 
 function App() {
-  const [name, setName] = useState('')
+  const [myCar, setMyCar] = useState('volvo')
 
-  const handleChange =(e) =>{
-    setName(e.target.value)
-  }
-
-  const handleSubmit = (e) =>{
-    e.preventDefault()
-    alert(`the name you entered is : ${name}`)
-
+  const handleChange = (e) =>{
+    setMyCar(e.target.value)
   }
 
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-          <label htmlFor="name">Enter your name:</label>
-          <input type="text" name="name" id="name" value={name} onChange={handleChange} />
+      <form>
+        <select value={myCar} onChange={handleChange} >
+          <option value="fiat">fiat</option>
+          <option value="volvo">volvo</option>
+          <option value="Ford">Ford</option>
+
+        </select>
       </form>
+      
     </div>
   )
 }
 
 export default App
+
+
+
+
+
+
+
+
+
+// import React, { useState } from 'react'
+
+// function App() {
+//   const [textarea, setTextarea] = useState('the content of textarea goes here in the value of attribute')
+
+//   const handleChange = (e) =>{
+//     setTextarea(e.target.value)
+//   }
+
+
+//   return (
+//     <div>
+//       <form>
+//         <textarea name="text" id="text" value={textarea} onChange={handleChange} cols={80} rows={10}></textarea>
+//       </form>
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useState } from 'react'
+
+// function App() {
+
+//   const[inputs, setInputs] = useState({})
+
+//   const handleChange = (e) =>{
+//     const name = e.target.name
+//     const value = e.target.value
+//     setInputs(values => ({...values,[name]:value}))
+//   }
+
+//   const handleSubmit = (e) =>{
+//     e.preventDefault()
+//     alert(inputs)
+//   }
+
+//   return (
+
+//     <div>
+//       <form onSubmit={handleSubmit}>
+//         <label htmlFor="username">Enter your name:</label>
+//         <input type="text" name="username" id="username" onChange={handleChange}  value={inputs.username || ''}/>   //Uses current value if available, or '' (empty string) to avoid React warning.
+
+//         <label htmlFor="age">Enter your age:</label>
+//         <input type="number" name="age" id="age" onChange={handleChange} value={inputs.age || ''} />
+
+//         <input type="submit" />
+
+//       </form>
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useState } from 'react'
+
+// function App() {
+//   const [name, setName] = useState('')
+
+//   const handleChange =(e) =>{
+//     setName(e.target.value)
+//   }
+
+//   const handleSubmit = (e) =>{
+//     e.preventDefault()
+//     alert(`the name you entered is : ${name}`)
+
+//   }
+
+
+//   return (
+//     <div>
+//       <form onSubmit={handleSubmit}>
+//           <label htmlFor="name">Enter your name:</label>
+//           <input type="text" name="name" id="name" value={name} onChange={handleChange} />
+//       </form>
+//     </div>
+//   )
+// }
+
+// export default App
 
 
 
